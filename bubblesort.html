@@ -1,11 +1,51 @@
+
 <!DOCTYPE html>
 <html>
+
 <head>
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 	<title>Bubble Sort</title>
 </head>
 <body>
 <p>
-	Bubble Sort
+	Bubble Sort is the simplest sorting algorithm.<br>
+	It takes an array and compares two elements at a time.<br>There are two loops running, outer loop and inner loop. At the end of each outer loop, the biggest loop bubbles to the end of the array, hence the name bubble sort.<br>
+
+	Here is tht C++ code for bubble sort.
+<pre class="prettyprint">
+<code>
+#include &lt;iostream&gt;
+using namespace std;
+
+void swap(int* int1,int* int2 ){
+int temp=*int1;
+*int1=*int2;
+*int2=temp;
+}
+
+void bubblesort(int arr[], int len){
+int i,j=0;
+for(i=0;i&lt;len-1;i++){
+    for(j=0;j&lt;len-i-1;j++){
+        if(arr[j]>arr[j+1]){
+            swap(&arr[j],&arr[j+1]);
+        }
+    }
+}
+}
+
+int main()
+{
+int arr[5]={2,4,3,1};
+bubblesort(arr,5);
+for(int i=0;i&lt;5;i++){
+    cout&lt;&lt;arr[i]&lt;&lt;" ";
+}
+return 0;
+}
+</code>
+</pre>
+
 </p>
 </body>
 </html>
