@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<title>Selection Sort</title>
+</head>
+<body>
+    <h2>Selection Sort</h2>
+<p>In each loop of selection sort, the minimum element is chosen,<br> and for loop#1, it is put at the 0th position in the array.<br> 
+	After loop#2, the minimum element is put at the 1st position in the array and so on.<br>
+	The C++ code for selection sort is
+
+
+<pre class="prettyprint">
+<code>
+#include<iostream>
+using namespace std;
+
+void swap(int* int1,int* int2 ){
+    int temp=*int1;
+    *int1=*int2;
+    *int2=temp;
+}
+
+void print(int arr[],int n){
+    for(int i=0;i&lt;n;i++){
+            cout<&lt;arr[i]<<" ";
+    }
+    cout<<"\n";
+}
+
+void selectionsort(int arr[], int size){
+    for(int i=0;i&lt;size-1;i++){
+        int min_index=i;
+        for(int j=i+1; j&lt;size; j++){
+            if(arr[j]&lt;arr[min_index]){
+                min_index=j;
+            }
+        }
+    swap(&arr[min_index],&arr[i]);
+    }
+}
+
+int main(){
+    int arr[5]={4,5,2,1,7};
+    selectionsort(arr,5);
+    print(arr,5);
+}
+
+}
+
+</code>
+</pre>	
+</body>
+</html>
