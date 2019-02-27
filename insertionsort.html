@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<title>Insertion Sort</title>
+</head>
+<body>
+<p> In insertion sort, we have a key in array(starting from second element of arrary).<br> Our target is to move this key to its appropriate position by comparing it if it is smaller than the element previous to it,<br> or previous to previous to it, we keep on repeating this process it(key) till it becomes bigger than the given element on the array.<br>
+	Here is the C++ code for Insertion Sort
+
+
+<pre class="prettyprint">
+<code>
+#include&lt;iostream>
+using namespace std;
+
+void print(int arr[],int n){
+    for(int i=0;i&lt;n;i++){
+        cout&lt;&lt;arr[i]&lt;&lt;" ";
+    }
+    cout<<"\n";
+
+}
+
+void insertionsort(int arr[],int n){
+int i,j=0;
+
+for(i=1;i&lt;n;i++){
+    j=i-1;
+    int key=arr[i];
+    while(j>=0 && arr[j]>key){
+        arr[j+1]=arr[j];
+        j--;
+    }
+    arr[j+1]=key;
+
+}
+}
+
+int main(){
+int arr[5]={4,5,2,1,7};
+insertionsort(arr,5);
+print(arr,5);
+}
+</code>
+</pre>
+
+</body>
+</html>
