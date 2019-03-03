@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Binary Search</title>
+</head>
+<body>
+<a href="algorithms.html">Back</a>
+<h2>Binary Search</h2>
+<p>In Binary Sort, we have to first sort the array or sorted array is already given.<br> Lets suppose the element to be found is num. The next step is to define element mid which lies in the mid of the array given.<br> Then we compare if the num==arr[mid]. If it is the case then we return arr[mid].<br> Else if num&lt;arr[mid] then we recursively call the first half of the array(excluding mid).<br> Else we call binary search on the second half of the array.<br>
+The C++ code for binary code is given below.</p>
+<pre class="prettyprint">
+<code>
+#include&lt;iostream>
+using namespace std;
+
+int binarysearch(int arr[],int num,int start,int end){
+    int mid=end+start/2;
+    
+    if(arr[mid]==num){
+         return mid;
+    }
+    else if(num&lt;arr[mid])
+    {
+        return binarysearch(arr,num,0,mid-1); 
+    }
+    else if(num>arr[mid])
+    {   
+        return binarysearch(arr,num,mid+1,end);  
+    }
+
+    }
+
+int main(){
+    int arr[]={1,2,3,4,5,6,7,8};
+    int num=binarysearch(arr,5,0,7);
+    cout<<num;
+} 
+</code>
+</pre> 
+</body>
+</html>
