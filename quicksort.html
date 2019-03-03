@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Quick Sort</title>
+</head>
+<body>
+    <h2>Quick Sort</h2>
+<p>Quick sort follows the divide and conquer strategy. We recursively divide the given array in two parts left and right based on a pivot given.<br> Quicksort makes use of partition function which partitions the given array into two parts.<br> Firstly there is the pivot element, the element to the left of pivot are smaller than it and elements to the right of pivot are bigger than it.
+<br>The C++ code for pivot is given below
+</p>
+
+<pre class="prettyprint">
+<code>
+#include&lt;iostream>
+using namespace std;
+
+void swap(int* a,int* b){
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+
+int partition(int arr[],int start,int end){
+    int pivot=arr[end];
+    int pindex=start;
+    for (int i = start; i&lt;end; i++)
+    {
+        if(arr[i]<=pivot){
+            swap(&arr[i],&arr[pindex]);
+            pindex++;
+        }
+
+    }
+    swap(&arr[pindex],&arr[end]);
+    return (pindex);
+}
+
+void quicksort(int arr[],int start,int end){
+
+if(start&lt;end){
+    int pindex=partition(arr,start,end);
+    quicksort(arr,0,pindex-1);
+    quicksort(arr,pindex+1,end);
+    }
+}
+
+
+int main(){
+    int arr[]={5,3,8,1,6,2,7,4};
+    quicksort(arr,0,7);
+    cout<<"Hello";
+    cout<&lt;endl;
+    for (int i = 0; i < 8; i++)
+    {
+        cout<&lt;arr[i]<<" ";
+    }
+}
+</code>
+</pre>
+</body>
+</html>
